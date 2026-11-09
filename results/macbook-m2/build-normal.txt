@@ -1,0 +1,14 @@
+[ 50%] Building CXX object CMakeFiles/spsc_tests.dir/tests/tests.cpp.o
+[ 75%] Built target spsc_bench
+[100%] Linking CXX executable spsc_tests
+[100%] Built target spsc_tests
+[ 25%] Building CXX object CMakeFiles/spsc_bench.dir/bench/main.cpp.o
+[ 75%] Built target spsc_tests
+[100%] Linking CXX executable spsc_bench
+[100%] Built target spsc_bench
+[ 25%] Building CXX object CMakeFiles/spsc_tests.dir/tests/tests.cpp.o
+[ 50%] Building CXX object CMakeFiles/spsc_bench.dir/bench/main.cpp.o
+[ 75%] Linking CXX executable spsc_tests
+[ 75%] Built target spsc_tests
+[100%] Linking CXX executable spsc_bench
+[100%] Built target spsc_bench

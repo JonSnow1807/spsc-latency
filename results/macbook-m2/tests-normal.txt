@@ -1,0 +1,9 @@
+PASS 8-bit counter wrap items=100000 capacity=64 seconds=0.00871029
+PASS 8-bit counter wrap items=100000 capacity=64 seconds=0.00689946
+PASS 8-bit counter wrap items=100000 capacity=64 seconds=0.00827046
+PASS 8-bit counter wrap items=100000 capacity=64 seconds=0.000556166
+PASS unit tests (including concurrent counter overflow)
+PASS naive items=100000000 capacity=1024 seconds=6.76429
+PASS acqrel items=100000000 capacity=1024 seconds=5.19675
+PASS padded items=100000000 capacity=1024 seconds=4.12322
+PASS cached items=100000000 capacity=1024 seconds=0.916256

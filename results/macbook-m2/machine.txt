@@ -1,0 +1,17 @@
+Model Name: MacBook Pro
+Model Identifier: Mac14,9
+Chip: Apple M2 Pro
+Total Number of Cores: 10 (6 performance and 4 efficiency)
+Memory: 16 GB
+Darwin Chinmays-MacBook-Pro.local 24.5.0 Darwin Kernel Version 24.5.0: Tue Apr 22 19:54:25 PDT 2025; root:xnu-11417.121.6~2/RELEASE_ARM64_T6020 arm64
+ProductName:		macOS
+ProductVersion:		15.5
+BuildVersion:		24F74
+Apple clang version 17.0.0 (clang-1700.0.13.5)
+Target: arm64-apple-darwin24.5.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+2026-11-09T01:44:08.739265+00:00
+Laptop run, no pinning; QOS_CLASS_USER_INTERACTIVE, relative priority 0.
+Initial repository: unborn HEAD; all project files uncommitted.
+Host sysctl calls denied by sandbox; model/memory from system_profiler (identifiers omitted).
