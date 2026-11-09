@@ -1,0 +1,2 @@
+FATAL: ThreadSanitizer: unexpected memory mapping 0x62f71d48e000-0x62f71d491000
+EXIT=66 (cmd: TSAN_OPTIONS=halt_on_error=1 taskset -c 2-7 ./build-tsan/spsc_tests --items 1000; vm.mmap_rnd_bits=32)

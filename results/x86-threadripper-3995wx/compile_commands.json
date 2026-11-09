@@ -1,0 +1,14 @@
+[
+{
+  "directory": "<repo>/build-linux",
+  "command": "/usr/bin/c++ -DSPSC_BUILD_FLAGS=\"\\\"-std=c++20  -O3 -DNDEBUG -Wall -Wextra -Wpedantic -Werror -march=native -O3\\\"\" -I<repo>/bench -I<repo>/include -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -Werror -march=native -O3 -o CMakeFiles/spsc_tests.dir/tests/tests.cpp.o -c <repo>/tests/tests.cpp",
+  "file": "<repo>/tests/tests.cpp",
+  "output": "CMakeFiles/spsc_tests.dir/tests/tests.cpp.o"
+},
+{
+  "directory": "<repo>/build-linux",
+  "command": "/usr/bin/c++ -DSPSC_BUILD_FLAGS=\"\\\"-std=c++20  -O3 -DNDEBUG -Wall -Wextra -Wpedantic -Werror -march=native -O3\\\"\" -I<repo>/bench -I<repo>/include -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -Werror -march=native -O3 -o CMakeFiles/spsc_bench.dir/bench/main.cpp.o -c <repo>/bench/main.cpp",
+  "file": "<repo>/bench/main.cpp",
+  "output": "CMakeFiles/spsc_bench.dir/bench/main.cpp.o"
+}
+]

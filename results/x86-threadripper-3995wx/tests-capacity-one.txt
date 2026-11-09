@@ -1,0 +1,11 @@
+CMD: taskset -c 2-7 ./build/spsc_tests --items 1000000 --capacity 1
+PASS 8-bit counter wrap items=100000 capacity=64 seconds=0.0121604
+PASS 8-bit counter wrap items=100000 capacity=64 seconds=0.00830021
+PASS 8-bit counter wrap items=100000 capacity=64 seconds=0.0261968
+PASS 8-bit counter wrap items=100000 capacity=64 seconds=0.00686755
+PASS unit tests (including concurrent counter overflow)
+PASS naive items=1000000 capacity=1 seconds=0.662005
+PASS acqrel items=1000000 capacity=1 seconds=0.611646
+PASS padded items=1000000 capacity=1 seconds=0.3924
+PASS cached items=1000000 capacity=1 seconds=0.660247
+EXIT=0

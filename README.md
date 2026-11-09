@@ -259,6 +259,45 @@ The saved command, full per-trial table and clock-overhead measurements are in
 normal/TSan test logs, and the CSV are alongside it. The repository was initially
 empty; all work remains uncommitted for review.
 
+## Measured x86 Linux run (pinned)
+
+Results and logs are in [`results/x86-threadripper-3995wx`](results/x86-threadripper-3995wx/).
+The machine was an **AMD Ryzen Threadripper PRO 3995WX** (64 cores / 128 threads)
+on a **shared rented Vast.ai host**, with Linux 6.8 and GCC 13.3.0
+(`-O3 -march=native`, 64-byte separation). The command was
+`taskset -c 2-7 ./scripts/run_linux.sh 2 3`, so the producer/initiator was pinned to CPU 2
+and the consumer/reflector to CPU 3. These are separate physical cores sharing one L3
+complex, and the bench verified both affinity masks. The run used the script's default
+sweep: capacities 2/8/64/1024/65536, both payload sizes, 10,000,000 throughput
+messages and 1,000,000 RTT samples per trial, 100,000 warmups, three shuffled
+repetitions, for 120 trials.
+
+Other tenants kept the host busy. The 1-minute load average went from 23.74 to 17.67
+during the job, and one nearby CPU (7) was fully busy throughout. Sampled busy time on
+the SMT siblings of CPUs 2 and 3 stayed at 0.0%. Frequency, boost, interrupts and
+isolation were not controlled. Release stress (`spsc_tests`) and ThreadSanitizer (Clang 21)
+each passed 100 million transfers per design. GCC 13's TSan runtime aborted at startup on this
+host, where `vm.mmap_rnd_bits` is 32 and the container cannot disable ASLR. See [`validation.md`](results/x86-threadripper-3995wx/validation.md).
+
+**8-byte messages, capacity 1024.** Medians of three trial statistics, with RTT/2 in ns.
+
+| Design | M items/s | p50 ns | p99 ns | p99.9 ns | Trial M items/s | Trial p99.9 (ns) |
+|---|---:|---:|---:|---:|---|---|
+| naive | 11.150 | 145.5 | 160.5 | 170 | 11.353, 11.150, 11.135 | 170, 170, 165.5 |
+| acqrel | 40.448 | 145 | 160 | 170.5 | 40.079, 40.532, 40.448 | 170.5, 170.5, 170.5 |
+| padded | 97.428 | 110 | 125 | 140 | 97.782, 97.428, 97.326 | 140, 150.5, 140 |
+| cached | 133.752 | 110 | 135.5 | 140.5 | 134.992, 133.752, 100.716 | 140.5, 140.5, 140.5 |
+
+For **64-byte messages at capacity 1024**, the throughput medians were 10.067 M items/s
+(`naive`), 54.187 (`acqrel`), 36.500 (`padded`) and 42.857 (`cached`). Unlike on the Mac,
+the adjacent-index `acqrel` control was the fastest design in this case. The x86
+throughput ranking also depends on capacity. For example, cached 8-byte throughput was
+133.752 M items/s at capacity 1024, 88.974 at 64, and 9.548 at 2. Back-to-back
+`steady_clock` pairs had p50 40 ns, p99 41 ns and max 50,124 ns, and that clock
+overhead is inside every RTT. Per-trial values for every case are in the medians section of
+[`summary.md`](results/x86-threadripper-3995wx/summary.md). That file also has the raw table,
+and `measurements.csv` and `machine.txt` sit alongside it.
+
 ## Pinned Linux run
 
 Inspect topology and the allowed CPU list before choosing two CPUs:

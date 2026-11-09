@@ -1,0 +1,3 @@
+CMD: TSAN_OPTIONS=halt_on_error=1 taskset -c 2-7 setarch -R ./build-tsan/spsc_tests --items 100000000 --timeout-seconds 1200
+setarch: failed to set personality to (null): Operation not permitted
+EXIT=1

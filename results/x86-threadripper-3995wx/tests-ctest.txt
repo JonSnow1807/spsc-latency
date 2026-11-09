@@ -1,0 +1,12 @@
+CMD: taskset -c 2-7 ctest --test-dir build --output-on-failure
+Internal ctest changing into directory: <repo>/build
+Test project <repo>/build
+    Start 1: unit
+1/2 Test #1: unit .............................   Passed    0.08 sec
+    Start 2: stress
+2/2 Test #2: stress ...........................   Passed    0.60 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   0.68 sec
+EXIT=0

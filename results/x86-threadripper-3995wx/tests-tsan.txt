@@ -1,0 +1,13 @@
+CMD: TSAN_OPTIONS=halt_on_error=1 taskset -c 2-7 ./build-tsan-clang/spsc_tests --items 100000000 --timeout-seconds 1200
+compiler: Ubuntu clang version 21.1.8 (++20251221032922+2078da43e25a-1~exp1~20251221153059.70); vm.mmap_rnd_bits=32
+=== attempt 1 start 2026-11-09T07:15:56Z
+PASS 8-bit counter wrap items=100000 capacity=64 seconds=0.16679
+PASS 8-bit counter wrap items=100000 capacity=64 seconds=0.127895
+PASS 8-bit counter wrap items=100000 capacity=64 seconds=0.115946
+PASS 8-bit counter wrap items=100000 capacity=64 seconds=0.0652473
+PASS unit tests (including concurrent counter overflow)
+PASS naive items=100000000 capacity=1024 seconds=157.261
+PASS acqrel items=100000000 capacity=1024 seconds=126.778
+PASS padded items=100000000 capacity=1024 seconds=112.685
+PASS cached items=100000000 capacity=1024 seconds=69.43
+=== attempt 1 EXIT=0 end 2026-11-09T07:23:43Z

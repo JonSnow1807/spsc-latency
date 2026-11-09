@@ -1,0 +1,6 @@
+CMD: TSAN_OPTIONS=halt_on_error=1 taskset -c 2-7 ./build-tsan-clang/spsc_tests --items 100000000 --timeout-seconds 1200   (CXX=clang++ Ubuntu clang version 21.1.8 (++20251221032922+2078da43e25a-1~exp1~20251221153059.70))
+2026-11-09T07:14:31Z
+FATAL: ThreadSanitizer: encountered an incompatible memory layout but was unable to disable ASLR (perhaps sandboxing is enabled?).
+FATAL: Please rerun with lower ASLR entropy, ASLR disabled, and/or sandboxing disabled.
+EXIT=66
+2026-11-09T07:14:31Z
